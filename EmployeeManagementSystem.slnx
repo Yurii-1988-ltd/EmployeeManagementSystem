@@ -1,0 +1,10 @@
+<Solution>
+  <Project Path="CompanyEmployees/CompanyEmployees.csproj" />
+  <Project Path="EmployeeManagementSystem.Contracts/EmployeeManagementSystem.Contracts.csproj" />
+  <Project Path="EmployeeManagementSystem.Domain/EmployeeManagementSystem.Domain.csproj" />
+  <Project Path="EmployeeManagementSystem.LoggerService/EmployeeManagementSystem.LoggerService.csproj" />
+  <Project Path="EmployeeManagementSystem.Presentation/EmployeeManagementSystem.Presentation.csproj" />
+  <Project Path="EmployeeManagementSystem.Repository/EmployeeManagementSystem.Repository.csproj" />
+  <Project Path="EmployeeManagementSystem.Service.Contracts/EmployeeManagementSystem.Service.Contracts.csproj" />
+  <Project Path="EmployeeManagementSystem.Service/EmployeeManagementSystem.Service.csproj" />
+</Solution>
