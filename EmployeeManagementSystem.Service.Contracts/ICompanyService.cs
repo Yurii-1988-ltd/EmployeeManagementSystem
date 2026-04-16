@@ -1,8 +1,11 @@
-﻿using EmployeeManagementSystem.Domain.Entities;
+﻿using EmployeeManagementSystem.Shared.DTOs;
 
 namespace EmployeeManagementSystem.Service.Contracts;
 
 public interface ICompanyService
 {
-    IEnumerable<Company> GetAllCompaniesAsync(bool trackChanges);
+    IEnumerable<CompanyDto> GetAllCompaniesAsync(bool trackChanges);
+    CompanyDto GetCompany(Guid companyId, bool trackChanges);
+    CompanyDto CreateCompany(CompanyForCreationDto company);
+    IEnumerable<CompanyDto> GetById(IEnumerable<Guid> ids, bool trackChanges);
 }

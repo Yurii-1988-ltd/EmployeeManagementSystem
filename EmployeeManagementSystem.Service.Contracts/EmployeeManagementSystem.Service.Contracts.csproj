@@ -8,6 +8,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\EmployeeManagementSystem.Domain\EmployeeManagementSystem.Domain.csproj" />
+      <ProjectReference Include="..\EmployeeManagementSystem.Shared\EmployeeManagementSystem.Shared.csproj" />
     </ItemGroup>
 
 </Project>

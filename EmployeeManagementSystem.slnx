@@ -7,4 +7,5 @@
   <Project Path="EmployeeManagementSystem.Repository/EmployeeManagementSystem.Repository.csproj" />
   <Project Path="EmployeeManagementSystem.Service.Contracts/EmployeeManagementSystem.Service.Contracts.csproj" />
   <Project Path="EmployeeManagementSystem.Service/EmployeeManagementSystem.Service.csproj" />
+  <Project Path="EmployeeManagementSystem.Shared/EmployeeManagementSystem.Shared.csproj" Id="1a2a22f8-09ec-483c-b329-e1288990659b" />
 </Solution>

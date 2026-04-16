@@ -3,8 +3,8 @@ using EmployeeManagementSystem.LoggerService;
 using EmployeeManagementSystem.Repository;
 using EmployeeManagementSystem.Service;
 using EmployeeManagementSystem.Service.Contracts;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
+using EmployeeManagementSystem.Service.Mapping;
+
 
 namespace CompanyEmployees.Extensions;
 
@@ -27,11 +27,19 @@ public static class ServiceExtensions
 
         });
     public static void ConfigureLoggerService(this IServiceCollection services)
-        =>services.AddSingleton<ILoggerManager,LoggerManager>();
-    
+        => services.AddSingleton<ILoggerManager, LoggerManager>();
+
     public static void ConfigureRepositoryManager(this IServiceCollection services)
-    => services.AddScoped<IRepositoryManager,RepositoryManager>();
-    
+    => services.AddScoped<IRepositoryManager, RepositoryManager>();
+
     public static void ConfigureServiceManager(this IServiceCollection services)
-                                 => services.AddScoped<IServiceManager,ServiceManager>();
+                                 => services.AddScoped<IServiceManager, ServiceManager>();
+    public static void ConfigureAutoMapper(this IServiceCollection services)
+        => services.AddAutoMapper(cfg =>
+        {
+            cfg.AddMaps(typeof(MappingProfile).Assembly);
+        });
 }
+   
+    
+        
