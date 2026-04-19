@@ -1,5 +1,6 @@
 ﻿using EmployeeManagementSystem.Contracts;
 using EmployeeManagementSystem.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace EmployeeManagementSystem.Repository;
 
@@ -9,18 +10,22 @@ public sealed class CompanyRepository : RepositoryBase<Company>, ICompanyReposit
     {
     }
 
-    public IEnumerable<Company> GetAllCompaniesAsync(bool trackChanges)
-    => FindAll(trackChanges)
+    public async Task<IEnumerable<Company>> GetAllCompaniesAsync(bool trackChanges)
+    => await FindAll(trackChanges)
         .OrderBy(c => c.Name)
-        .ToList();
+        .ToListAsync();
 
-    public Company GetCompany(Guid companyId, bool trackChanges)
-    =>FindByCondition(c=>c.Id.Equals(companyId),trackChanges)
-    .SingleOrDefault();
+    public async Task<Company> GetCompany(Guid companyId, bool trackChanges)
+    => await FindByCondition(c=>c.Id.Equals(companyId),trackChanges)
+    .SingleOrDefaultAsync();
 
     public void CreateCompany(Company company)
     =>Create(company);
 
-    public IEnumerable<Company> GetById(IEnumerable<Guid> ids, bool trackChanges)
-    => FindByCondition(c => ids.Contains(c.Id), trackChanges);
+    public async Task<IEnumerable<Company>> GetById(IEnumerable<Guid> ids, bool trackChanges)
+    => await FindByCondition(c => ids.Contains(c.Id), trackChanges)
+        .ToListAsync();
+    
+    public void Delete(Company company)
+    =>Delete(company);
 }

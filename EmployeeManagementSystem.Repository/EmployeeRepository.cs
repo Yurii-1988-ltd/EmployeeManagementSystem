@@ -3,7 +3,7 @@ using EmployeeManagementSystem.Domain.Entities;
 
 namespace EmployeeManagementSystem.Repository;
 
-public sealed class EmployeeRepository:RepositoryBase<Employee>,IEmployeeRepository
+public sealed class EmployeeRepository : RepositoryBase<Employee>, IEmployeeRepository
 {
     public EmployeeRepository(RepositoryContext context) : base(context)
     {
@@ -16,12 +16,19 @@ public sealed class EmployeeRepository:RepositoryBase<Employee>,IEmployeeReposit
      
     }
 
-    public IEnumerable<Employee> GetAllEmployeesAsync(Guid companyId, bool trackChanges)
-    => FindByCondition(e => e.CompanyId.Equals(companyId), trackChanges)
+    public   IEnumerable<Employee>GetAllEmployeesAsync(Guid companyId, bool trackChanges)
+    =>  FindByCondition(e => e.CompanyId.Equals(companyId), trackChanges)
         .OrderBy(e => e.Name)
         .ToList();
 
-    public Employee GetEmployeeAsync(Guid companyId, Guid id, bool trackChanges)
+    public  Employee GetEmployeeAsync(Guid companyId, Guid id, bool trackChanges)
     => FindByCondition(e => e.CompanyId.Equals(companyId) && e.Id.Equals(id), trackChanges)
         .SingleOrDefault();
+    
+    public void Delete(Employee employee)
+    {
+        Delete(employee);
+    }
+
+   
 }

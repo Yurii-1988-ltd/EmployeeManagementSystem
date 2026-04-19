@@ -7,5 +7,6 @@ public interface IEmployeeRepository
     IEnumerable<Employee>GetAllEmployeesAsync(Guid companyId, bool trackChanges);
     Employee GetEmployeeAsync(Guid companyId, Guid id, bool trackChanges);
     void CreateEmployeeForCompany(Guid  companyId, Employee employee);
+    void Delete(Employee employee);
     
 }

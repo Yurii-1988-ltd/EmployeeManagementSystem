@@ -32,5 +32,27 @@ public class EmployeeController: ControllerBase
 		return CreatedAtRoute("GetEmployeeForCompany", new { companyId, id = employeeToReturn.Id }, employeeToReturn);
 
     }
+	[HttpDelete("{id:guid}")]
+	public IActionResult DeleteEmployeeForCompany(Guid companyId, Guid id)
+	{
+		_services.EmployeeService.DeleteEmployeeForCompany(companyId, id, false);
+		return NoContent();
+	}
+
+	[HttpPut("{id:guid}")]
+	public IActionResult UpdateEmployeeForCompany(Guid companyId, Guid id, [FromBody] EmployeeForUpdateDto employee)
+	{
+		if (employee is null)
+		{
+			return BadRequest("Employee object is null ");
+		}
+
+		if (!ModelState.IsValid)
+			return UnprocessableEntity(ModelState);
+		
+		_services.EmployeeService.UpdateEmployeeForCompany(companyId, id, employee, companyTrackChanges: false, employeeTrackChanges: true);
+		
+		return NoContent();
+	}
 
 }

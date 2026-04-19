@@ -13,3 +13,7 @@ global using Microsoft.AspNetCore.Diagnostics;
 global using Microsoft.AspNetCore.Http;
 global using EmployeeManagementSystem.Presentation;
 global using EmployeeManagementSystem.Repository.Extensions;
+global using EmployeeManagementSystem.Service.Contracts;
+global using EmployeeManagementSystem.Shared.DTOs;
+global using Microsoft.AspNetCore.Mvc;
+
